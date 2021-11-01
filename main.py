@@ -1,3 +1,6 @@
-from src.prints import home_screen
+from src.tela import prints
 
-home_screen()
+print = prints('amoeba', 22)
+
+print.telaini()
+print.ada()
