@@ -41,6 +41,7 @@ Pronto, você acabou de aprender a usar o YTDOWN!
 ## Navegação
 
 Colar: `Ctrl + Shift + V`
+
 Voltar: `Ctrl + C`
 
 ## Considerações
