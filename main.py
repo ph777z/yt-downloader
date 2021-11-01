@@ -1,43 +1,56 @@
+from pytube.exceptions import RegexMatchError
 from pytube.helpers import regex_search
-from src.tela import tela
-from src.down import down
+from src.tela import telaa as tela
+from src.down import down as dw
 import time
-
-down = down()
-tela = tela()
 
 def inicio():
     try:
         tela.menu()
         if input() == 'p':
             while True:
-                link = tela.playlist()
                 try:
+                    down = dw()
+                    link = tela.playlist()
                     down.tipo('p', link)
                     title = down.nome()
                     if tela.downConfirm(title):
                         down.down()
                     break
                 except KeyboardInterrupt:
-                    raise KeyboardInterrupt
-                """ except:
+                    break
+                except RegexMatchError:
                     print("Link inválido")
-                    time.sleep(2) """
+                    time.sleep(2)
+                finally:
+                    inicio()
         else:
             while True:
-                link = tela.video()
                 try:
+                    down = dw()
+                    link = tela.video()
                     down.tipo('v', link)
                     title = down.nome()
                     if tela.downConfirm(title):
                         down.down()
                     break
                 except KeyboardInterrupt:
-                    raise KeyboardInterrupt
-                """ except:
+                    break
+                except RegexMatchError:
                     print("Link inválido")
-                    time.sleep(2) """
+                    time.sleep(2)
+                finally:
+                    inicio()
     except KeyboardInterrupt:
         tela.clearScreen()
+
+def ini():
+    try:
+        tela.telaini()
+    except KeyboardInterrupt:
+        tela.clearScreen()
+    else:
+        inicio()
+
 if __name__ == '__main__':
-    inicio()
+    ini()

@@ -1,5 +1,8 @@
-from tqdm import tqdm
 import os
+
+class bcolor:
+    red = '\033[91m'
+    reset = '\033[0m'
 
 class tela:
     def __init__(self):
@@ -12,21 +15,21 @@ class tela:
             os.system('clear')
 
     def telaini(self):
-        print(r"""
-        \\\   ///  |||||||||  ||||\\\     ///|\\\   |||   //\\   |||  ||\\\   |||
-         \\\ ///      |||     |||  \\\   ///   \\\  |||  ///\\\  |||  |||\\\  |||
-          \\|//       |||     |||   ||| |||     ||| ||| ///  \\\ |||  ||| \\\ |||
-           |||        |||     |||  ///   \\\   ///  |||///    \\\|||  |||  \\\|||
-           |||        |||     ||||///     \\\|///   ||///      \\\||  |||   \\\||
-        
+        self.clearScreen()
+        print(bcolor.red + r"""
+        \\  // ||||||   ||\\     //\\   ||   /\   || |\\   ||
+         \\//    ||     || \\   //  \\  ||  //\\  || ||\\  ||
+          \/     ||     ||  || ||    || || //  \\ || || \\ ||
+          ||     ||     || //   \\  //  ||//    \\|| ||  \\||
+          ||     ||     ||//     \\//   |//      \\| ||   \\|
+        """ + bcolor.reset + """
         Enter para iniciar
         """)
         input()
-        self.clearScreen()
+        self.menu()
         
     def menu(self):
         self.clearScreen()
-        self.telaini()
         print("""
         Digite:
 
@@ -50,8 +53,5 @@ class tela:
             return True
         else:
             return False
-
-    def down(self, down):
-        for i in tqdm(down):
-            pass
-        
+                    
+telaa = tela()
