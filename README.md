@@ -4,7 +4,7 @@ Baixar videos do youtube com python.
 
 - [Como Instalar?](#como-instalar)
 - [Como Usar?](#como-usar?)
-- [navegação](#navegação)
+- [Navegação](#navegação)
 - [Considerações](#considerações)
 - [Dependências](#dependências)
 
