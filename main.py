@@ -1,6 +1,43 @@
-from src.tela import prints
+from pytube.helpers import regex_search
+from src.tela import tela
+from src.down import down
+import time
 
-print = prints('amoeba', 22)
+down = down()
+tela = tela()
 
-print.telaini()
-print.ada()
+def inicio():
+    try:
+        tela.menu()
+        if input() == 'p':
+            while True:
+                link = tela.playlist()
+                try:
+                    down.tipo('p', link)
+                    title = down.nome()
+                    if tela.downConfirm(title):
+                        down.down()
+                    break
+                except KeyboardInterrupt:
+                    raise KeyboardInterrupt
+                """ except:
+                    print("Link inválido")
+                    time.sleep(2) """
+        else:
+            while True:
+                link = tela.video()
+                try:
+                    down.tipo('v', link)
+                    title = down.nome()
+                    if tela.downConfirm(title):
+                        down.down()
+                    break
+                except KeyboardInterrupt:
+                    raise KeyboardInterrupt
+                """ except:
+                    print("Link inválido")
+                    time.sleep(2) """
+    except KeyboardInterrupt:
+        tela.clearScreen()
+if __name__ == '__main__':
+    inicio()
