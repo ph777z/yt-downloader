@@ -28,7 +28,6 @@ class down:
     def down(self):
         if self.tipo == 'v':
             self.down = self.link.streams.get_highest_resolution()
-            print(self.down.filesize_approx)
             print(f'Baixando "{self.nome()}" - {self.filesize(self.down.filesize_approx)}MB')
             self.down.download(self.caminho)
             print()
